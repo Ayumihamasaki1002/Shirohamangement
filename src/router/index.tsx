@@ -32,10 +32,11 @@ const withLoadingComponent = (comp: JSX.Element) => (
 );
 const routes = [
   {
-    path: "/", //重定向到home
-    element: <Navigate to="/home/page1" />,
+    path: "/", 
+    element: <Navigate to="/login" />,
   },
   {
+    
     path: "/home",
     element: withLoadingComponent(<Home />),
     children: [

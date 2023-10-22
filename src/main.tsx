@@ -6,16 +6,24 @@ import 'reset-css'
 // import 'antd/dist/antd.css'
 // 全局的样式
 import '@/assets/styles/global.scss'
+
+//引入redux中的Provider
+import {Provider} from 'react-redux' 
+// 引入store
+import store from './store'
+
 import App from './App'
 
 import {BrowserRouter}  from 'react-router-dom'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+  <Provider store={store}>
   <React.StrictMode>
     <BrowserRouter>
       <App/>
     </BrowserRouter>
 
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
 )
