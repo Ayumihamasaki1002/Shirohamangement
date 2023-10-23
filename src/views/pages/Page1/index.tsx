@@ -1,13 +1,23 @@
 import React from "react";
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Layout, theme } from "antd";
 const { Content } = Layout;
 
+
 export default function Page1() {
+  
   const {token: { colorBgContainer },} = theme.useToken();
-  const {num} = useSelector((state) => ({
+  const {num} = useSelector((state:object) => ({
     num: state.num
-  }));
+  }))
+  const dispatch = useDispatch()
+  const changNum = ()=>{
+
+    dispatch({
+       type: 'add',
+       val:20
+    })
+  }
   return (
     <Content style={{ margin: "16px 16px 0" }}>
       <div
@@ -19,6 +29,7 @@ export default function Page1() {
       >
         Bill is a cat.
         <p>{num}</p>
+        <button onClick={changNum}>加一</button>
       </div>
     </Content>
   );
