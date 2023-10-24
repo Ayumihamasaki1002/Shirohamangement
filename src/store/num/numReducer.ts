@@ -1,27 +1,32 @@
-import handleNum from './numAction'
-interface handleNum {
-    SYSETEM_INFO:boolean, //系统消息公告类
-    [add: string]: boolean, // 字段扩展声明
-}
-const defaultState = {
-    ...handleNum.state
-}
+import { createReducer } from '@reduxjs/toolkit'
+import {add} from './numAction'
 
-const reducer = (state=defaultState,action:{type:string,val:number})=>{
-    const newState = JSON.parse(JSON.stringify(state))
-    switch(action.type){
-        case handleNum.add:
-            handleNum.actions.add(newState,action)
-            break
-        default:
-            break    
-    }
+export const couter = createReducer(0,{
+    [add]: (state:number,action: { val: number })=> state + action.val
+})
 
 
 
 
-    return newState
-}
+// const defaultState = {
+//     add
+// }
+
+// const reducer = (state=defaultState,action:{type:string,val:number})=>{
+//     const newState = JSON.parse(JSON.stringify(state))
+//     switch(action.type){
+//         case add:
+//             handleNum.actions.add(newState,action)
+//             break
+//         default:
+//             break    
+//     }
 
 
-export default reducer
+
+
+//     return newState
+// }
+
+
+// export default reducer

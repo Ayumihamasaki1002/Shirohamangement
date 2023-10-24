@@ -7,8 +7,8 @@ const { Content } = Layout;
 export default function Page1() {
   
   const {token: { colorBgContainer },} = theme.useToken();
-  const {num} = useSelector((state:object) => ({
-    num: state.num
+  const {num} = useSelector((state:number) => ({
+    num: state
   }))
   const dispatch = useDispatch()
   const changNum = ()=>{
